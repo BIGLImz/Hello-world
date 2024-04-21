@@ -1,0 +1,455 @@
+#include<iostream>
+using namespace std;
+#include<string>
+#include<algorithm>
+#include<stdlib.h>
+class Studentmanage
+{
+public:
+	Studentmanage()
+	{
+	}
+	void m_Studentmessage(string name, string num, int classroom, string major, double math, string mathnum, double progra, string progranum, double physics, string physicsnum)
+	{
+		m_name = name;
+		m_num = num;
+		m_classroom = classroom;
+		m_major = major;
+		m_math = math;;
+		m_progra = progra;
+		m_physics = physics;
+		m_mathnum = mathnum;
+		m_progranum = progranum;
+		m_physicsnum = physicsnum;
+	}
+	string setnum(string num)//设置学生学号
+	{
+		m_num = num;
+		return m_num;
+	}
+	string setname(string name)//设置学生姓名
+	{
+		m_name = name;
+		return m_name;
+	}
+	int setclassroom(int classroom)//设置学生班级
+	{
+		m_classroom = classroom;
+		return m_classroom;
+	}
+	string setmajor(string major)//设置学生专业
+	{
+		m_major = major;
+		return m_major;
+	}
+	string setmathnum(string mathnum)//设置高数编号
+	{
+		m_mathnum = mathnum;
+		return m_mathnum;
+	}
+	string setprogranum(string progranum)//设置高级程序设计编号
+	{
+		m_progranum = progranum;
+		return m_progranum;
+	}
+	string setphysicsnum(string physicsnum)//设置大物编号
+	{
+		m_physicsnum = physicsnum;
+		return m_physicsnum;
+	}
+	double setmath(double math)//设置学生高数成绩
+	{
+		m_math = math;
+		return m_math;
+	}
+	double setprogra(double progra)//设置学生程序设计成绩
+	{
+		m_progra = progra;
+		return m_progra;
+	}
+	double setphysics(double physics)//设置大物成绩
+	{
+		m_physics = physics;
+		return m_physics;
+	}
+	string getnum()//输出学生学号
+	{
+		return m_num;
+	}
+	string getname()//输出学生姓名
+	{
+		return m_name;
+	}
+	int getclassroom()//输出学生班级
+	{
+		return m_classroom;
+	}
+	string getmathnum()//输出高数编号
+	{
+		return m_mathnum;
+	}
+	string getprogranum()//输出程序设计编号
+	{
+		return m_progranum;
+	}
+	string getphysicsnum()//输出大物编号
+	{
+		return m_physicsnum;
+	}
+	string getmajor()//输出学生专业
+	{
+		return m_major;
+	}
+	double getmath()//输出学生高数成绩
+	{
+		return m_math;
+	}
+	double getprogra()//输出学生程序设计成绩
+	{
+		return m_progra;
+	}
+	double getphysics()//输出学生大物成绩
+	{
+		return m_physics;
+	}
+	double totalscore()//输出学生三科总成绩
+	{
+		m_total = m_math + m_progra + m_physics;
+		return m_total;
+	}
+	double averagescore()//输出学生三科平均成绩
+	{
+		m_average = totalscore() / 3.0;
+		return m_average;
+	}
+	void Showstudent()//输出学生的全部信息
+	{
+		cout << "姓名: " << m_name << " 学号: " << m_num << " 班级: " << m_classroom << " 专业: " << m_major
+			<< " 高数: " << m_math << " 高数编号: " << m_mathnum << " 程序设计: " << m_progra << " 程序设计编号: " << m_progranum
+			<< " 大物: " << m_physics << " 大物编号: " << m_physicsnum
+			<< " 总成绩: " << totalscore() << " 平均成绩: " << averagescore() << endl;
+	}
+	void Addstudent()//输入学生的全部信息
+	{
+		cout << "姓名: ";
+		cin >> m_name;
+		cout << endl;
+		cout << "学号: ";
+		cin >> m_num;
+		cout << endl;
+		cout << "班级: ";
+		cin >> m_classroom;
+		cout << endl;
+		cout << "专业: ";
+		cin >> m_major;
+		cout << endl;
+		cout << "高数: ";
+		cin >> m_math;
+		cout << endl;
+		cout << "高数编号: ";
+		cin >> m_mathnum;
+		cout << endl;
+		cout << "程序设计: ";
+		cin >> m_progra;
+		cout << endl;
+		cout << "程序设计编号: ";
+		cin >> m_progranum;
+		cout << endl;
+		cout << "大物: ";
+		cin >> m_physics;
+		cout << endl;
+		cout << "大物编号: ";
+		cin >> m_physicsnum;
+		cout << endl;
+		cout << "已成功存入!" << endl;
+	}
+	void ShowMenu()//显示菜单
+	{
+		cout << "\t			\t************************************" << endl;
+		cout << "\t			\t******欢迎来到学生成绩管理系统******" << endl;
+		cout << "\t			\t*******   0 退出操作系统     *******" << endl;
+		cout << "\t			\t*******   1 排序学生信息     *******" << endl;
+		cout << "\t			\t*******   2 增加学生信息     *******" << endl;
+		cout << "\t			\t*******   3 删除学生信息     *******" << endl;
+		cout << "\t			\t*******   4 修改学生信息     *******" << endl;
+		cout << "\t			\t*******   5 查询学生信息     *******" << endl;
+		cout << "\t			\t************************************" << endl;
+	}
+	void Exitsystem()//退出系统
+	{
+		cout << "欢迎下次再来哦！" << endl;
+		system("pause");
+		exit(0);
+	}
+	~Studentmanage()//析构函数
+	{
+
+	}
+private:
+	string m_name;
+	string m_num;
+	int m_classroom;
+	string m_major;
+	double m_math;
+	double m_progra;
+	double m_physics;
+	double m_total;
+	double m_average;
+	string m_mathnum;
+	string m_progranum;
+	string m_physicsnum;
+};
+bool cmptotalscore(Studentmanage a, Studentmanage b)
+{
+	return a.totalscore() > b.totalscore();
+}
+void Sorttotalscore(Studentmanage p[], int n)//对学生总成绩降序排序
+{
+	sort(p, p + n, cmptotalscore);
+}
+bool cmpmath(Studentmanage a, Studentmanage b)
+{
+	return a.getmath() > b.getmath();
+}
+void Sortmathscore(Studentmanage p[], int n)//对学生高数成绩降序排序
+{
+	sort(p, p + n, cmpmath);
+}
+bool cmpprogra(Studentmanage a, Studentmanage b)
+{
+	return a.getprogra() > b.getprogra();
+}
+void Sortprograscore(Studentmanage p[], int n)//对学生程序设计成绩降序排列
+{
+	sort(p, p + n, cmpprogra);
+}
+bool cmpphysics(Studentmanage a, Studentmanage b)
+{
+	return a.getphysics() > b.getphysics();
+}
+void Sortphysicsscore(Studentmanage p[], int n)//对学生大物成绩降序排列
+{
+	sort(p, p + n, cmpphysics);
+}
+bool cmpaverage(Studentmanage a, Studentmanage b)
+{
+	return a.averagescore() > b.averagescore();
+}
+void Sortaveragescore(Studentmanage p[], int n)//对学生平均成绩降序排列
+{
+	sort(p, p + n, cmpaverage);
+}
+int main()
+{
+	Studentmanage p;
+	Studentmanage q[15];
+	q[0].m_Studentmessage("Daming", "213406", 4, "计科", 89, "345", 90, "567", 96, "789");
+	q[1].m_Studentmessage("Jackie", "213405", 3, "计科", 67, "345", 97, "567", 78, "789");
+	q[2].m_Studentmessage("Lihua", "213404", 2, "计科", 79, "345", 90, "567", 66, "789");
+	int flag;//flag代表要执行的操作
+	static int i = 3;//i 代表增加的人从序号3开始
+	string s, t;//s t 代表需要查询或者删除的输入信息
+	double a;//a 代表把成绩换成指定的
+	int z = -1;//利用z 来判断能否查询到学生信息
+	while (true)
+	{
+		p.ShowMenu();//显示菜单
+		cout << "欢迎进入学生成绩管理系统" << endl;
+		cout << "你想执行什么功能呢？  请输入对应的编号：";
+		cin >> flag;//flag 代表需要执行的菜单中的功能
+		switch (flag)//利用switch判断执行的功能
+		{
+		case 0://退出操作系统
+			p.Exitsystem();
+			break;
+		case 1://排序学生信息
+			cout << "学生信息及排名如下:" << endl;
+			Sorttotalscore(q, i);
+			for (int j = 0; j < i; j++)
+			{
+				q[j].Showstudent();
+			}
+			system("pause");
+			system("cls");
+			break;
+		case 2://增加学生信息 
+			cout << "请输入你要添加的学生信息:" << endl;
+			q[i].Addstudent();
+			i++;
+			system("pause");
+			system("cls");
+			break;
+		case 3: //删除学生信息
+			cout << "你想要删除哪个学生呢？输入他/她的学号或者姓名都是可以哒！请输入:";
+			cin >> s;
+			for (int j = 0; j < i; j++)
+			{
+				if (q[j].getnum() == s || q[j].getname() == s)
+				{
+					z = j;
+					break;
+				}
+			}
+			if (z == -1)
+			{
+				cout << "该学生不是本学校的哦！你再换一个试试吧！" << endl;
+				system("pause");
+				system("cls");
+			}
+			else
+			{
+				for (int j = z; j < i; j++)
+				{
+					q[j] = q[j + 1];
+				}
+				i--;
+				cout << "删除成功啦！" << endl;
+				system("pause");
+				system("cls");
+			}
+			break;
+		case 4://修改学生信息
+			cout << "请输入你想要修改的学生的名字或者学号: ";
+			cin >> s;
+			for (int j = 0; j < i; j++)
+			{
+				if (q[j].getnum() == s || q[j].getname() == s)
+				{
+					q[j].Showstudent();
+					cout << "你想要修改该学生的什么信息呢？ 请输入此信息的名称:";
+					cin >> s;
+					if ("学号" == s)
+					{
+						cout << "你想把学号修改成: ";
+						cin >> t;
+						q[j].setnum(t);
+					}
+					else if ("姓名" == s)
+					{
+						cout << "你想把姓名修改成: ";
+						cin >> t;
+						q[j].setname(t);
+					}
+					else if ("班级" == s)
+					{
+						cout << "你想把班级修改成: ";
+						cin >> a;
+						q[j].setclassroom(a);
+					}
+					else if ("专业" == s)
+					{
+						cout << "你想把专业修改成: ";
+						cin >> t;
+						q[j].setmajor(t);
+					}
+					else if ("高数" == s)
+					{
+						cout << "你想把高数成绩修改成: ";
+						cin >> a;
+						q[j].setmath(a);
+					}
+					else if ("高数编号" == s)
+					{
+						cout << "你想把高数编号修改成: ";
+						cin >> t;
+						q[j].setmathnum(t);
+					}
+					else if ("程序设计" == s)
+					{
+						cout << "你想把程序设计成绩修改成: ";
+						cin >> a;
+						q[j].setprogra(a);
+					}
+					else if ("程序设计编号" == s)
+					{
+						cout << "你想把程序设计编号修改成: ";
+						cin >> t;
+						q[j].setprogranum(t);
+					}
+					else if ("大物" == s)
+					{
+						cout << "你想把大物成绩修改成: ";
+						cin >> a;
+						q[j].setphysics(a);
+					}
+					else if ("大物编号" == s)
+					{
+						cout << "你想把大物编号修改成: ";
+						cin >> t;
+						q[j].setphysicsnum(t);
+					}
+					cout << "恭喜你修改成功!" << endl;
+					system("pause");
+					system("cls");
+				}
+			}
+			break;
+		case 5://查询学生信息 
+			cout << "请输入你想要查询的学生信息: " << endl;
+			cin >> s;
+			if (s == "高数最高分")
+			{
+				Sortmathscore(q, i);
+				cout << "高数最高的学生为:" << endl;
+				q[0].Showstudent();
+			}
+			else if (s == "程序设计最高分")
+			{
+				Sortprograscore(q, i);
+				cout << "程序设计最高的学生为:" << endl;
+				q[0].Showstudent();
+			}
+			else if (s == "大物最高分")
+			{
+				Sortphysicsscore(q, i);
+				cout << "大物最高的学生为:" << endl;
+				q[0].Showstudent();
+			}
+			else if (s == "总分最高分")
+			{
+				cout << "总分最高的学生为:" << endl;
+				q[0].Showstudent();
+			}
+			else if (s == "平均分最高分")
+			{
+				Sortaveragescore(q, i);
+				cout << "平均分最高的学生为:" << endl;
+				q[0].Showstudent();
+			}
+			else
+			{
+				z = -1;
+				for (int j = 0; j < i; j++)
+				{
+					if (q[j].getnum() == s || q[j].getname() == s)
+					{
+						z = j;
+						break;
+					}
+				}
+				if (z == -1)
+				{
+					cout << "未查询到该学生" << endl;
+					system("pause");
+					system("cls");
+					break;
+				}
+				else
+				{
+					q[z].Showstudent();
+				}
+			}
+			cout << "" << endl;
+			system("pause");//按任意键继续
+			system("cls");//清屏
+			break;
+		default:
+			cout << "我们还没开发出来这个功能呢！ 你试试别的吧！" << endl;
+			system("pause");
+			system("cls");
+			break;
+		}
+	}
+	system("pause");
+	return 0;
+}
